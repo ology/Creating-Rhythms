@@ -21,6 +21,7 @@ my @data;
 my $re = list2re @aparts;
 
 my $i = Integer::Partition->new($n, { lexicographic => 1 });
+
 while (my $p = $i->next) {
   push @data, [ sort { $a <=> $b } @$p ]
     if all { $_ =~ /^$re$/ } @$p;

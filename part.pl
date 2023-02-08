@@ -13,6 +13,7 @@ my $n = shift || die "Usage: perl $0 n\n";
 my @data;
 
 my $i = Integer::Partition->new($n, { lexicographic => 1 });
+
 while (my $p = $i->next) {
     push @data, [ sort { $a <=> $b } @$p ];
 }
