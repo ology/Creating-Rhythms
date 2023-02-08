@@ -14,3 +14,4 @@ Perl code ported from the book's C
     parta.pl  - Generate all partitions of n with allowed parts pi.
     partm.pl  - Generate all partitions of n into m parts.
     part.pl   - Generate all partitions of n.
+    permi.pl  - Generate permutations of the given strings.
