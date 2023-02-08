@@ -14,14 +14,14 @@ my @intervals;
 my @parts = (1);
 my $i = 0;
 
-# k = length of necklace
-# l = length of longest prefix that is a lyndon word
-# m = number of parts (ones)
-
 neckbin(1, 1, 0);
 
 print ddc(\@intervals),
   'Size: ', scalar @intervals, "\n";
+
+# k = length of necklace
+# l = length of longest prefix that is a lyndon word
+# m = number of parts (ones)
 
 sub neckbin {
   my ($k, $l, $m) = @_;
