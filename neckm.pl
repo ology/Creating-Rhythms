@@ -12,7 +12,6 @@ my $n1 = shift || die "Usage: perl $0 n m\n";
 
 my @intervals;
 my @parts = (1);
-
 my $i = 0;
 
 # k = length of necklace
