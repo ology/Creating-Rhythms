@@ -1,11 +1,14 @@
 #!/usr/bin/env perl
+
+# Generate all compositions of n into m parts.
+
 use strict;
 use warnings;
 
 use Data::Dumper::Compact qw(ddc);
 
 my $n  = shift;
-my $mp = shift || die "Usage: perl $0 n m\n\nGenerate all compositions of n into m parts\n";
+my $mp = shift || die "Usage: perl $0 n m\n";
 
 $mp--;
 
