@@ -12,14 +12,14 @@ my $mp = shift || die "Usage: perl $0 n m\n";
 
 $mp--;
 
-my @intervals;
+my @data;
 my @parts;
 my $i = 0;
 
 compose($n - 1, 1, 0);
 
-print ddc(\@intervals),
-  'Size: ', scalar @intervals, "\n";
+print ddc(\@data),
+  'Size: ', scalar @data, "\n";
 
 sub compose {
   my ($n, $p, $m) = @_;
@@ -27,12 +27,12 @@ sub compose {
   if ($n == 0) {
     if ($m == $mp) {
       while ($n < $m) {
-        push $intervals[$i]->@*, $parts[$n];
+        push $data[$i]->@*, $parts[$n];
 
         $n++;
       }
 
-      push $intervals[$i]->@*, $p;
+      push $data[$i]->@*, $p;
 
       $i++;
     }

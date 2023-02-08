@@ -9,26 +9,26 @@ use Data::Dumper::Compact qw(ddc);
 
 my $n = shift || die "Usage: perl $0 n\n";
 
-my @intervals;
+my @data;
 my @parts;
 my $i = 0;
 
 partition($n - 1, 1, 0);
 
-print ddc(\@intervals),
-  'Size: ', scalar @intervals, "\n";
+print ddc(\@data),
+  'Size: ', scalar @data, "\n";
 
 sub partition {
   my ($n, $p, $m) = @_;
 
   if ($n == 0) {
     while ($n < $m) {
-      push $intervals[$i]->@*, $parts[$n];
+      push $data[$i]->@*, $parts[$n];
 
       $n++;
     }
 
-    push $intervals[$i]->@*, $p;
+    push $data[$i]->@*, $p;
 
     $i++;
 

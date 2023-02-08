@@ -13,15 +13,15 @@ my @aparts = @ARGV; # allowed parts
 die "Usage: perl $0 n p1 p2 ...\n"
   unless $n && @aparts;
 
-my @intervals;
+my @data;
 my @parts = (1);
 my $nap = @aparts;
 my $i = 0;
 
 neckbin(1, 1, 1);
 
-print ddc(\@intervals),
-  'Size: ', scalar @intervals, "\n";
+print ddc(\@data),
+  'Size: ', scalar @data, "\n";
 
 sub allowed {
   my ($p) = @_;
@@ -44,7 +44,7 @@ sub neckbin {
   if ($k > $n) {
     if (($n % $l) == 0 && allowed($p) && $p <= $n) {
       for $k (1 .. $n) {
-        push $intervals[$i]->@*, $parts[$k];
+        push $data[$i]->@*, $parts[$k];
       }
 
       $i++;

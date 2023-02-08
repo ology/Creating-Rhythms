@@ -10,14 +10,14 @@ use Data::Dumper::Compact qw(ddc);
 my $n  = shift;
 my $n1 = shift || die "Usage: perl $0 n m\n";
 
-my @intervals;
+my @data;
 my @parts = (1);
 my $i = 0;
 
 neckbin(1, 1, 0);
 
-print ddc(\@intervals),
-  'Size: ', scalar @intervals, "\n";
+print ddc(\@data),
+  'Size: ', scalar @data, "\n";
 
 # k = length of necklace
 # l = length of longest prefix that is a lyndon word
@@ -29,7 +29,7 @@ sub neckbin {
   if ($k > $n) {
     if (($n % $l) == 0 && $m == $n1) {
       for $k (1 .. $n) {
-        push $intervals[$i]->@*, $parts[$k];
+        push $data[$i]->@*, $parts[$k];
       }
 
       $i++;

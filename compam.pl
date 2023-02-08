@@ -16,15 +16,15 @@ die "Usage: perl $0 n m p1 p2 ...\n"
 
 $mp--;
 
-my @intervals;
+my @data;
 my @parts;
 my $nap = @aparts;
 my $i = 0;
 
 compose($n - 1, 1, 0);
 
-print ddc(\@intervals),
-  'Size: ', scalar @intervals, "\n";
+print ddc(\@data),
+  'Size: ', scalar @data, "\n";
 
 sub allowed {
   my ($p) = @_;
@@ -42,11 +42,11 @@ sub compose {
   if ($n == 0) {
     if ($m == $mp && allowed($p)) {
       while ($n < $m) {
-        push $intervals[$i]->@*, $parts[$n];
+        push $data[$i]->@*, $parts[$n];
         $n++;
       }
 
-      push $intervals[$i]->@*, $p;
+      push $data[$i]->@*, $p;
 
       $i++;
     }
