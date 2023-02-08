@@ -1,10 +1,13 @@
 #!/usr/bin/env perl
+
+# Generate all compositions of n.
+
 use strict;
 use warnings;
 
 use Data::Dumper::Compact qw(ddc);
 
-my $n = shift || die "Usage: perl $0 n\n\nGenerate all compositions of n\n";
+my $n = shift || die "Usage: perl $0 n\n";
 
 my @intervals;
 my @parts;
