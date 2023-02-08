@@ -21,7 +21,7 @@ while (my $p = $i->next) {
     my $iter = permutations($p);
 
     while (my $x = $iter->next) {
-      next if $seen{"@$x"}++; # skip the duplicate permutations
+      next if $seen{"@$x"}++; # skip duplicate permutations
 
       push @data, $x
         if @$x == $m;
