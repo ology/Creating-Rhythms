@@ -10,7 +10,6 @@ my $n = shift || die "Usage: perl $0 n\n";
 
 my @intervals;
 my @parts = (1);
-
 my $i = 0;
 
 neckbin(1, 1);
