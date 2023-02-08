@@ -1,10 +1,11 @@
 #!/usr/bin/env perl
+
+# Generate all binary necklaces of length n.
+
 use strict;
 use warnings;
 
 use Data::Dumper::Compact qw(ddc);
-
-# Generate all binary necklaces of length n.
 
 my $n = shift || die "Usage: perl $0 n\n";
 
