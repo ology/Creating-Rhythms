@@ -1,4 +1,7 @@
 #!/usr/bin/env perl
+
+# Generate compositions of n with m parts from the set (p1 p2 ...).
+
 use strict;
 use warnings;
 
@@ -8,7 +11,7 @@ my $n  = shift;
 my $mp = shift;
 my @aparts = @ARGV; # allowed parts
 
-die "Usage: perl $0 n m p1 p2 ...\n\nGenerate compositions of n with m parts from the set (p1 p2 ...)\n"
+die "Usage: perl $0 n m p1 p2 ...\n"
   unless $n && $mp && @aparts;
 
 $mp--;
