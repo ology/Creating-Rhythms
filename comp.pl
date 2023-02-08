@@ -26,5 +26,10 @@ while (my $p = $i->next) {
     }
 }
 
+# make sure the data is in lexicographical order
+@data = map { [ split //, $_ ] }
+  sort { $a cmp $b }
+    map { join '', @$_ } @data;
+
 print ddc(\@data),
   'Size: ', scalar @data, "\n";
