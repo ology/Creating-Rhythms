@@ -22,7 +22,7 @@ my %seen;
 
 my $re = list2re @aparts;
 
-my $i = Integer::Partition->new($n, { lexicographic => 1 });
+my $i = Integer::Partition->new($n);
 
 while (my $p = $i->next) {
   my $iter = permutations($p);
