@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-# Generate all partitions of n with m parts form the set (p1 p2 ...).
+# Generate all partitions of n with m parts from the set (p1 p2 ...).
 
 use strict;
 use warnings;
