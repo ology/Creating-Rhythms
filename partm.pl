@@ -44,6 +44,7 @@ sub partition {
 
   if ($m < $mp) {
     $parts[$m] = $p;
+
     partition($n - $p, $p, $m + 1);
   }
 
