@@ -14,7 +14,6 @@ $mp--;
 
 my @intervals;
 my @parts;
-
 my $i = 0;
 
 compose($n - 1, 1, 0);
