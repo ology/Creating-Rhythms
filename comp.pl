@@ -14,7 +14,7 @@ my $n = shift || die "Usage: perl $0 n\n";
 my @data;
 my %seen;
 
-my $i = Integer::Partition->new($n, { lexicographic => 1 });
+my $i = Integer::Partition->new($n);
 
 while (my $p = $i->next) {
     my $iter = permutations($p);
