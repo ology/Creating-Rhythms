@@ -11,7 +11,6 @@ my $n = shift || die "Usage: perl $0 n\n";
 
 my @intervals;
 my @parts;
-
 my $i = 0;
 
 compose($n - 1, 1, 0);
