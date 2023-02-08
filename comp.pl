@@ -17,12 +17,12 @@ my %seen;
 my $i = Integer::Partition->new($n);
 
 while (my $p = $i->next) {
-    my $iter = permutations($p);
+    my $j = permutations($p);
 
-    while (my $x = $iter->next) {
-      next if $seen{"@$x"}++; # skip the duplicate permutations
+    while (my $q = $j->next) {
+      next if $seen{"@$q"}++; # skip the duplicate permutations
 
-      push @data, $x;
+      push @data, $q;
     }
 }
 
