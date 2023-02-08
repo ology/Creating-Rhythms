@@ -10,7 +10,7 @@ Perl code ported from the book's C
     necka.pl    - Generate binary necklaces of length n with allowed parts pi.
     neckm.pl    - Generate all binary necklaces of length n with m ones.
     neck.pl     - Generate all binary necklaces of length n.
-    partam.pl   - Generate all partitions of n with m parts form the set (p1 p2 ...).
+    partam.pl   - Generate all partitions of n with m parts from the set (p1 p2 ...).
     parta.pl    - Generate all partitions of n with allowed parts pi.
     partm.pl    - Generate all partitions of n into m parts.
     part.pl     - Generate all partitions of n.
