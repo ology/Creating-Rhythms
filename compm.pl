@@ -5,6 +5,8 @@
 use strict;
 use warnings;
 
+use lib 'lib';
+use Util;
 use Algorithm::Combinatorics qw(permutations);
 use Data::Dumper::Compact qw(ddc);
 use Integer::Partition ();
@@ -29,9 +31,7 @@ while (my $p = $i->next) {
 }
 
 # make sure the data is in lexicographical order
-@data = map { [ split //, $_ ] }
-  sort { $a cmp $b }
-    map { join '', @$_ } @data;
+@data = Util::lex_sort(@data);
 
 print ddc(\@data),
   'Size: ', scalar @data, "\n";
