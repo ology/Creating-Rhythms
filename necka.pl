@@ -39,7 +39,7 @@ sub allowed {
 # p = size of the next part
 
 sub neckbin {
-    my ($k, $l, $p) = @_;
+  my ($k, $l, $p) = @_;
 
   if ($k > $n) {
     if (($n % $l) == 0 && allowed($p) && $p <= $n) {
