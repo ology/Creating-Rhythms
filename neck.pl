@@ -6,43 +6,38 @@ use strict;
 use warnings;
 
 use Data::Dumper::Compact qw(ddc);
+use String::CyclicRotation qw(is_rotation);
 
 my $n = shift || die "Usage: perl $0 n\n";
 
+my @lex;
 my @data;
-my @parts = (1);
-my $i = 0;
 
-neckbin(1, 1);
+for my $i (0 .. 2 ** $n - 1) {
+  my $x = sprintf '%0*b', $n, $i; 
+  push @lex, $x;
+}
+
+for my $i (reverse @lex) {
+  push @data, $i unless has_rotation($i, @data);
+}
 
 print ddc(\@data),
   'Size: ', scalar @data, "\n";
 
-# k = length of necklace
-# l = length of longest prefix that is a lyndon word
+sub has_rotation {
+  my ($string, @strings) = @_;
 
-sub neckbin {
-  my ($k, $l) = @_;
+  my $found = 0;
 
-  if ($k > $n) {
-    if(($n % $l) == 0) {
-      for $k (1 .. $n) {
-        push $data[$i]->@*, $parts[$k];
-      }
+  for my $i (@strings) {
+    next if $string eq $i;
 
-      $i++;
+    if (is_rotation($string, $i)) {
+      $found++;
+      last;
     }
   }
-  else {
-    $parts[$k] = $parts[ $k - $l ];
 
-    if ($parts[$k] == 1) {
-      neckbin($k + 1, $l);
-      $parts[$k] = 0;
-      neckbin($k + 1, $k);
-    }
-    else {
-      neckbin($k + 1, $l);
-    }
-  }
+  return $found;
 }
