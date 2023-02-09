@@ -5,8 +5,9 @@
 use strict;
 use warnings;
 
+use lib 'lib';
+use Util;
 use Data::Dumper::Compact qw(ddc);
-use String::CyclicRotation qw(is_rotation);
 
 my $n = shift || die "Usage: perl $0 n\n";
 
@@ -19,25 +20,9 @@ for my $i (0 .. 2 ** $n - 1) {
 }
 
 for my $i (reverse @lex) {
-  push @data, $i unless has_rotation($i, @data);
+  push @data, $i
+    unless Util::has_rotation($i, @data);
 }
 
 print ddc(\@data),
   'Size: ', scalar(@data), "\n";
-
-sub has_rotation {
-  my ($string, @strings) = @_;
-
-  my $found = 0;
-
-  for my $i (@strings) {
-    next if $string eq $i;
-
-    if (is_rotation($string, $i)) {
-      $found++;
-      last;
-    }
-  }
-
-  return $found;
-}
