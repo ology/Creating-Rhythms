@@ -23,7 +23,7 @@ for my $i (reverse @lex) {
 }
 
 print ddc(\@data),
-  'Size: ', scalar @data, "\n";
+  'Size: ', scalar(@data), "\n";
 
 sub has_rotation {
   my ($string, @strings) = @_;
