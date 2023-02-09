@@ -12,7 +12,7 @@ use Data::Dumper::Compact qw(ddc);
 use Integer::Partition ();
 
 my $n = shift;
-my $m = shift || die "Usage: perl $0 n m\n";
+my $m = shift // die "Usage: perl $0 n m\n";
 
 my @data;
 my %seen;
