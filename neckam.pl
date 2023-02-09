@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-# Generate binary necklaces of length n with m ones and allowed parts pi.
+# Generate binary necklaces of length n with m ones and allowed intervals pi.
 
 use strict;
 use warnings;
