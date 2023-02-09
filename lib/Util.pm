@@ -9,7 +9,7 @@ use String::CyclicRotation qw(is_rotation);
 
 =head2 lex_sort
 
-Sort an array reference in lexicographical order.
+Sort an array of array references in lexicographical order.
 
 =cut
 
