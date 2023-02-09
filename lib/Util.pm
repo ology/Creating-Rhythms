@@ -43,4 +43,23 @@ sub has_rotation {
   return $found;
 }
 
+=head2 lex_iter
+
+Add the binary numbers from C<0> to C<2 ** N - 1> to a list.
+
+=cut
+
+sub lex_iter {
+  my ($n) = @_;
+
+  my @bin;
+
+  for my $i (0 .. 2 ** $n - 1) {
+    my $x = sprintf '%0*b', $n, $i; 
+    push @bin, $x;
+  }
+
+  return @bin;
+}
+
 1;
