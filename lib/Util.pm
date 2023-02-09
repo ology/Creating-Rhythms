@@ -62,4 +62,20 @@ sub lex_iter {
   return @bin;
 }
 
+=head2 allowed
+
+
+
+=cut
+
+sub allowed {
+  my ($p, $parts) = @_;
+
+  for my $i (0 .. $#$parts) {
+    return 1 if $p == $parts->[$i];
+  }
+
+  return 0;
+}
+
 1;
