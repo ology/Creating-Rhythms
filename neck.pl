@@ -11,13 +11,9 @@ use Data::Dumper::Compact qw(ddc);
 
 my $n = shift || die "Usage: perl $0 n\n";
 
-my @lex;
 my @data;
 
-for my $i (0 .. 2 ** $n - 1) {
-  my $x = sprintf '%0*b', $n, $i; 
-  push @lex, $x;
-}
+my @lex = Util::lex_iter($n);
 
 for my $i (reverse @lex) {
   push @data, $i
