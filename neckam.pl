@@ -18,7 +18,6 @@ die "Usage: perl $0 n m p1 p2 ...\n"
 
 my @data;
 my @parts = (1);
-my $nap = @aparts;
 my $i = 0;
 
 neckbin(1, 1, 0, 1);
