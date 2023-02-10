@@ -5,13 +5,7 @@
 use strict;
 use warnings;
 
-use lib 'lib';
-use Util;
-use Algorithm::Combinatorics qw(permutations);
 use Data::Dumper::Compact qw(ddc);
-use Data::Munge qw(list2re);
-use Integer::Partition ();
-use List::Util qw(all);
 
 my $n = shift;
 my @aparts = @ARGV; # allowed parts
@@ -20,25 +14,48 @@ die "Usage: perl $0 n p1 p2 ...\n"
   unless $n && @aparts;
 
 my @data;
-my %seen;
+my @parts;
+my $nap = @aparts;
+my $i = 0;
 
-my $re = list2re @aparts;
-
-my $i = Integer::Partition->new($n);
-
-while (my $p = $i->next) {
-  my $j = permutations($p);
-
-  while (my $q = $j->next) {
-    next if $seen{"@$q"}++; # skip duplicate permutations
-
-    push @data, $q
-      if all { $_ =~ /^$re$/ } @$q;
-  }
-}
-
-# make sure the data is in lexicographical order
-@data = Util::lex_sort(@data);
+compose($n - 1, 1, 0);
 
 print ddc(\@data),
   'Size: ', scalar @data, "\n";
+
+sub allowed {
+  my ($p) = @_;
+
+  for my $i (0 .. $nap - 1) {
+    return 1 if $p == $aparts[$i];
+  }
+
+  return 0;
+}
+
+sub compose {
+  my ($n, $p, $m) = @_;
+
+  if ($n == 0) {
+    if (allowed($p)) {
+      while ($n < $m) {
+        push $data[$i]->@*, $parts[$n];
+        $n++;
+      }
+
+      push $data[$i]->@*, $p;
+
+      $i++;
+    }
+
+    return;
+  }
+
+  if (allowed($p)) {
+    $parts[$m] = $p;
+
+    compose($n - 1, 1, $m + 1);
+  }
+
+  compose($n - 1, $p + 1, $m);
+}
