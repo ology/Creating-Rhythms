@@ -2,6 +2,8 @@
 
 Perl code ported from the book's C
 
+https://abrazol.com/books/rhythm1/software.html
+
     compam.pl   - Generate compositions of n with m parts from the set (p1 p2 ...).
     compa.pl    - Generate compositions of n with allowed parts pi.
     compm.pl    - Generate all compositions of n into m parts.
