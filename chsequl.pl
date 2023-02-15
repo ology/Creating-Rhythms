@@ -14,7 +14,7 @@ use Data::Dumper::Compact qw(ddc);
 
 my $t = shift;
 my $p = shift;
-my $q = shift || die "Usage: perl $0 t p q [n]\n";
+my $q = shift || die "Usage: perl $0 type numberator denominator [terms]\n";
 my $n = shift;
 
 $n ||= $p + $q;
