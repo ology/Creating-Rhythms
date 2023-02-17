@@ -20,8 +20,9 @@ my $i = 0;
 
 compose($n - 1, 1, 0);
 
-print ddc(\@data),
-  'Size: ', scalar @data, "\n";
+print join(' ', @data), "\n";
+#print ddc(\@data),
+#  'Size: ', scalar @data, "\n";
 
 sub allowed {
   my ($p) = @_;

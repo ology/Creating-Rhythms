@@ -20,5 +20,6 @@ while (my $p = $i->next) {
       if @$p == $m;
 }
 
-print ddc(\@data),
-  'Size: ', scalar @data, "\n";
+print join(' ', @data), "\n";
+#print ddc(\@data),
+#  'Size: ', scalar @data, "\n";

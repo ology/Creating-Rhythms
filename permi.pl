@@ -15,5 +15,4 @@ die "Usage: perl $0 a1 a2 ... an\n"
 
 my @data = permutations(\@aparts);
 
-print ddc(\@data),
-  'Size: ', scalar @data, "\n";
+print join(' ', @data), "\n";

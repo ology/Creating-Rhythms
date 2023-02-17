@@ -10,8 +10,6 @@
 use strict;
 use warnings;
 
-use Data::Dumper::Compact qw(ddc);
-
 my $t = shift;
 my $p = shift;
 my $q = shift || die "Usage: perl $0 type numerator denominator [terms]\n";
@@ -48,5 +46,4 @@ while ($i < $n) {
   }
 }
 
-print ddc(\@data),
-  'Size: ', scalar @data, "\n";
+print join(' ', @data), "\n";

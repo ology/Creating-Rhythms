@@ -18,5 +18,6 @@ while (my $p = $i->next) {
     push @data, [ sort { $a <=> $b } @$p ];
 }
 
-print ddc(\@data),
-  'Size: ', scalar @data, "\n";
+print join(' ', @data), "\n";
+#print ddc(\@data),
+#  'Size: ', scalar @data, "\n";

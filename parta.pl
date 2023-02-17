@@ -27,5 +27,6 @@ while (my $p = $i->next) {
     if all { $_ =~ /^$re$/ } @$p;
 }
 
-print ddc(\@data),
-  'Size: ', scalar @data, "\n";
+print join(' ', @data), "\n";
+#print ddc(\@data),
+#  'Size: ', scalar @data, "\n";

@@ -15,8 +15,9 @@ my $i = 0;
 
 neckbin(1, 1);
 
-print ddc(\@data),
-  'Size: ', scalar @data, "\n";
+print join(' ', @data), "\n";
+#print ddc(\@data),
+#  'Size: ', scalar @data, "\n";
 
 # k = length of necklace
 # l = length of longest prefix that is a lyndon word

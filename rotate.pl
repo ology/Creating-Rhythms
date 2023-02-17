@@ -18,5 +18,6 @@ my $atu = Music::AtonalUtil->new;
 
 my $data = $atu->rotate($n, \@aparts);
 
-print ddc(\@aparts), "$n =>\n", ddc($data),
-  'Size: ', scalar @$data, "\n";
+print join(' ', @data), "\n";
+#print ddc(\@aparts), "$n =>\n", ddc($data),
+#  'Size: ', scalar @$data, "\n";
