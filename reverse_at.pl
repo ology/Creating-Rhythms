@@ -13,10 +13,10 @@ my @aparts = @ARGV;
 die "Usage: perl $0 n p1 p2 ... pm\n"
   unless @aparts;
 
-my @start = @aparts[ 0 .. $n - 1 ];
-my @end   = reverse @aparts[ $n .. $#aparts ];
+my @head = @aparts[ 0 .. $n - 1 ];
+my @tail = reverse @aparts[ $n .. $#aparts ];
 
-my @data = (@start, @end);
+my @data = (@head, @tail);
 
 print join(' ', @data), "\n";
 #print ddc(\@aparts), "$n =>\n", ddc(\@data),
