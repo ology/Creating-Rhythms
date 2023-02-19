@@ -5,6 +5,8 @@
 use strict;
 use warnings;
 
+use lib 'lib';
+use Util;
 use Data::Dumper::Compact qw(ddc);
 
 my $n = shift;
@@ -20,25 +22,15 @@ my $i = 0;
 
 compose($n - 1, 1, 0);
 
-print join(' ', @data), "\n";
+print join("\n", map { join ' ', @$_ } @data), "\n";
 #print ddc(\@data),
 #  'Size: ', scalar @data, "\n";
-
-sub allowed {
-  my ($p) = @_;
-
-  for my $i (0 .. $nap - 1) {
-    return 1 if $p == $aparts[$i];
-  }
-
-  return 0;
-}
 
 sub compose {
   my ($n, $p, $m) = @_;
 
   if ($n == 0) {
-    if (allowed($p)) {
+    if (Util::allowed($p, \@aparts)) {
       while ($n < $m) {
         push $data[$i]->@*, $parts[$n];
         $n++;
@@ -52,7 +44,7 @@ sub compose {
     return;
   }
 
-  if (allowed($p)) {
+  if (Util::allowed($p, \@aparts)) {
     $parts[$m] = $p;
 
     compose($n - 1, 1, $m + 1);
