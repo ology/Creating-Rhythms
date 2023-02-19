@@ -2,10 +2,17 @@
 
 # Generate binary necklaces of length n with m ones and allowed parts pi.
 
+# k = length of necklace
+# l = length of longest prefix that is a lyndon word
+# m = number of parts (ones)
+# p = size of the next part
+
 use strict;
 use warnings;
 
-use Data::Dumper::Compact qw(ddc);
+use lib 'lib';
+use Util;
+#use Data::Dumper::Compact qw(ddc);
 
 my $n  = shift;
 my $n1 = shift;
@@ -21,30 +28,15 @@ my $i = 0;
 
 neckbin(1, 1, 0, 1);
 
-print join(' ', @data), "\n";
+print join("\n", map { join ' ', @$_ } @data), "\n";
 #print ddc(\@data),
 #  'Size: ', scalar @data, "\n";
-
-sub allowed {
-  my ($p) = @_;
-
-  for my $i (0 .. $nap - 1) {
-    return 1 if $p == $aparts[$i];
-  }
-
-  return 0;
-}
-
-# k = length of necklace
-# l = length of longest prefix that is a lyndon word
-# m = number of parts (ones)
-# p = size of the next part
 
 sub neckbin {
   my ($k, $l, $m, $p) = @_;
 
   if ($k > $n) {
-    if(($n % $l) == 0 && allowed($p) && $p <= $n && $m == $n1) {
+    if(($n % $l) == 0 && Util::allowed($p, \@aparts) && $p <= $n && $m == $n1) {
       for $k (1 .. $n) {
         push $data[$i]->@*, $parts[$k];
       }
@@ -55,7 +47,7 @@ sub neckbin {
   else {
     $parts[$k] = $parts[ $k - $l ];
     if ($parts[$k] == 1) {
-      if (allowed($p) || $k == 1) {
+      if (Util::allowed($p, \@aparts) || $k == 1) {
         neckbin($k + 1, $l, $m + 1, 1);
       }
       $parts[$k] = 0;
