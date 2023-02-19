@@ -7,7 +7,7 @@ use warnings;
 
 use lib 'lib';
 use Util;
-use Data::Dumper::Compact qw(ddc);
+#use Data::Dumper::Compact qw(ddc);
 
 my $n = shift;
 my @aparts = @ARGV; # allowed parts
