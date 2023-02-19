@@ -5,7 +5,7 @@
 use strict;
 use warnings;
 
-use Data::Dumper::Compact qw(ddc);
+#use Data::Dumper::Compact qw(ddc);
 
 my $n = shift;
 my @aparts = @ARGV; # allowed parts
