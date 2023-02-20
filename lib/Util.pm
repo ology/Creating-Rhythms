@@ -57,9 +57,20 @@ sub lex_iter {
   return @bin;
 }
 
+sub intervals2bin {
+  my (@aparts) = @_;
+  my %bin;
+  for my $i (@aparts) {
+      next unless $i; # don't allow zero
+      my $bits = '1' . '0' x ($i - 1);
+      $bin{$bits} = $i;
+  }
+  return %bin;
+}
+
 =head2 allowed
 
-
+Only allow ...
 
 =cut
 
