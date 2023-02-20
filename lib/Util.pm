@@ -32,9 +32,7 @@ sub has_rotation {
   my $found = 0;
 
   for my $i (@strings) {
-    next if $string eq $i;
-
-    if (is_rotation($string, $i)) {
+    if ($string eq $i || is_rotation($string, $i)) {
       $found++;
       last;
     }
