@@ -29,10 +29,13 @@ Does the given string have a rotation in the list of strings?
 sub has_rotation {
   my ($string, @strings) = @_;
 
+  my $ones = $string =~ tr/1//;
+
   my $found = 0;
 
   for my $i (@strings) {
-    if ($string eq $i || is_rotation($string, $i)) {
+    my $onesi = $i =~ tr/1//;
+    if ($string eq $i || ($ones == $onesi && is_rotation($string, $i))) {
       $found++;
       last;
     }
