@@ -3,21 +3,15 @@
 # Generate the upper or lower Christoffel word for p/q
 # Pages 49-53
 
-# Arguments:
-# t = required type of word (u: upper, l: lower)
-# p = required numerator of slope
-# n = optional number of terms to generate, default: 16
-
-# q = computed denominator of slope
-
 use strict;
 use warnings;
 
-my $t = shift || 'u';
-my $p = shift || die "Usage: perl $0 type numerator [terms]\n";
-my $n = shift || 16;
+my $t = shift || 'u'; # type of word: u=upper, l=lower
+my $p = shift || 2;   # numerator of slope
+my $m = shift || 14;  # maximum denominator
+my $n = shift || 16;  # number of terms to generate
 
-for my $q (1 .. 14) {
+for my $q (1 .. $m) {
   my @data;
   my $i = 0;
 
