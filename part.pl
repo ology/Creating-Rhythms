@@ -5,7 +5,6 @@
 use strict;
 use warnings;
 
-use Data::Dumper::Compact qw(ddc);
 use Integer::Partition ();
 
 my $n = shift || die "Usage: perl $0 n\n";
@@ -18,6 +17,4 @@ while (my $p = $i->next) {
     push @data, [ sort { $a <=> $b } @$p ];
 }
 
-print join(' ', @data), "\n";
-#print ddc(\@data),
-#  'Size: ', scalar @data, "\n";
+print join("\n", map { join ' ', @$_ } @data), "\n";
